@@ -59,39 +59,10 @@
             </div>
             <div class="modal-content">
                 <div id="cho">
-                <script>
-                    //这三个函数其实可以写成一个函数，前提是this关键字可以用。还有待改进！！
-                    function clicked1(id1,id2){
-                        document.getElementById(id1).style.backgroundColor='#ddd';
-                        document.getElementById('sty').style.backgroundColor='#adadad';
-                        document.getElementById('data').style.backgroundColor='#adadad';
-                        document.getElementById(id2).style.visibility='visible';
-                        document.getElementById('edit2').style.visibility='hidden';
-                        document.getElementById('edit3').style.visibility='hidden';
-                    }
-                    function clicked2(id1,id2){
-                        document.getElementById(id1).style.backgroundColor='#ddd';
-                        document.getElementById('append').style.backgroundColor='#adadad';
-                        document.getElementById('data').style.backgroundColor='#adadad';
-                        document.getElementById(id2).style.visibility='visible';
-                        document.getElementById('edit1').style.visibility='hidden';
-                        document.getElementById('edit3').style.visibility='hidden';
-                    }
-                    function clicked3(id1,id2){
-                        document.getElementById(id1).style.backgroundColor='#ddd';
-                        document.getElementById('sty').style.backgroundColor='#adadad';
-                        document.getElementById('append').style.backgroundColor='#adadad';
-                        document.getElementById(id2).style.visibility='visible';
-                        document.getElementById('edit2').style.visibility='hidden';
-                        document.getElementById('edit1').style.visibility='hidden';
-}
-                </script>
                 <div id="append" class="choice" onclick="clicked1('append','edit1')">添加数据</div>
                 <div id="sty" class="choice" onclick="clicked2('sty','edit2')">样式配置</div>
                 <div id="data" class="choice" onclick="clicked3('data','edit3')">数据格式</div>
-
                 </div>
-
                 <div id="edit1">
                     <ul>
                         <li><label for="placeholder">控件在面板上占位单元格</label></li>
@@ -105,7 +76,7 @@
                         <li><label for="msgld">Msgld</label></li>
                         <li><input id="msgid" type="text" id="msgld" class="input-group"></li>
                     </ul>
-                    <img src="img/highchart/pushcolumn.jpg">
+                    <img src="images/pushcolumn.jpg">
                 </div>
                 <div id="edit2">
                     <ul id="config">
@@ -153,17 +124,13 @@
                         }
                     </pre>
                 </div>
-
-
                 <div id="save" data-dismiss="modal" aria-label="Close">
                     保存设置此控件
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-
 <!--用于显示highchat绘制的表格-->
 <div class="gridster">
     <ul id="ul"></ul>
