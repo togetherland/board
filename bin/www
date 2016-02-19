@@ -1,16 +1,16 @@
 #!/usr/bin/nodejs
 var debug = require('debug')('my-application');
 var app = require('../app');
+var redis=require('redis');
+var client=redis.createClient('6379','127.0.0.1');
 
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
-    var xAxis={
-        categories: ['一月', '二月', '三月', '四月', '五月', '六月'
-            ,'七月', '八月', '九月', '十月', '十一月', '十二月']
-    };
+
+//这里是linechart的初始设置
     var yAxis = {
         plotLines: [{
             value: 0,
@@ -29,41 +29,39 @@ var server = app.listen(app.get('port'), function() {
         verticalAlign: 'middle',
         borderWidth: 0
     };
-
-    var series =  [
-        {
-            name: 'Tokyo',
-            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2,
-                26.5, 23.3, 18.3, 13.9, 9.6]
-        },
-        {
-            name: 'New York',
-            data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8,
-                24.1, 20.1, 14.1, 8.6, 2.5]
-        },
-        {
-            name: 'Berlin',
-            data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6,
-                17.9, 14.3, 9.0, 3.9, 1.0]
-        },
-        {
-            name: 'London',
-            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0,
-                16.6, 14.2, 10.3, 6.6, 4.8]
-        }
-    ];
-    var json={};
+var payload={};
 var io=require('socket.io').listen(server);
 io.sockets.on('connection',function(socket){
+//通过socket把前端的信息推送到后台来
 socket.on('chartmsg',function(data){ 
-    json.title={text:data.title};
-    json.xAxis = xAxis;
-    json.yAxis = yAxis;
-    json.yAxis.title={text:data.yAxis};
-    json.tooltip = tooltip;
-    json.legend = legend;
-    json.series = series;
-    console.log(json);
-    socket.emit('test',json); 
-    });  
+    var channelName=data.channel;//通道名字
+    payload.title={text:data.title};//chart的名字
+    payload.yAxis = yAxis;
+    payload.yAxis.title={text:data.yAxis};//y轴的名字
+    payload.tooltip = tooltip;
+    payload.legend = legend;
+//一下是从redis数据库推送过来的数据
+    try{
+    var client=redis.createClient('6379','127.0.0.1');
+    client.on('error',function (error) {
+        console.log(error);
+    });
+    client.on('ready',function  (){
+        client.subscribe(channelName);
+    });
+    client.on('message',function  (channel,message) {
+        var info=JSON.parse(message);
+        var serie=[{name:info.name,data:info.data}];
+        var xAxis={categories:info.categories};
+        payload.series=serie;
+        payload.xAxis = xAxis;
+		//将redis推送过来打数据和所有chart的信息封装好后向前端推送
+        socket.emit('test',payload); 
+        //console.log(payload);
+    });
+}
+catch(error){
+    console.log(error);
+}
+});  
 });

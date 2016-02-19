@@ -24,15 +24,17 @@ var gridster;
         var title=document.getElementById("title").value;
         var xAxis=document.getElementById('xAxis').value;
         var yAxis=document.getElementById('yAxis').value;
+        var channel=document.getElementById('msgid').value;
+        var li=gridster.add_widget('<li class="con">The HTML of the widget...</li>', 4, 2);
     var socket=io.connect('http://localhost:3000');
     var msg={};
     msg.title=title;
     msg.yAxis=yAxis;
+    msg.channel=channel;
     //msg.xAxis=xAxis;
     socket.emit('chartmsg',msg);
     socket.on('test',function (data) {
         var json=data;
-        var li=gridster.add_widget('<li class="con">The HTML of the widget...</li>', 4, 2);
         $(li).highcharts(json);
     });
 });
