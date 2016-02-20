@@ -54,10 +54,17 @@ client.on('ready',function  (error) {
 	if (error) {
 		console.log(error);
 	}else{
-		client.publish('NewYork',JSON.stringify(NewYork));
-		client.publish('Berlin',JSON.stringify(Berlin));
-		client.publish('London',JSON.stringify(London));
+		var interval=setInterval(function  () {
+			client.publish('NewYork',JSON.stringify(NewYork));
+			client.publish('Berlin',JSON.stringify(Berlin));
+			client.publish('London',JSON.stringify(London));
+		},1000);
+		setTimeout(function  () {
+			clearInterval(interval);
+			console.log("out of interval");
+
+		},100000);
 	}
-	client.end();
+	//client.end();
 });
 
