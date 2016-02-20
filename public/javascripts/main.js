@@ -21,20 +21,27 @@ var gridster;
         }).data('gridster');
     });
     $("#save").click(function () {
-        var title=document.getElementById("title").value;
+        var title={text:document.getElementById("title").value};
         var xAxis=document.getElementById('xAxis').value;
-        var yAxis=document.getElementById('yAxis').value;
+        var yAxis={text:document.getElementById('yAxis').value};
         var channel=document.getElementById('msgid').value;
         var li=gridster.add_widget('<li class="con">The HTML of the widget...</li>', 4, 2);
     var socket=io.connect('http://localhost:3000');
     var msg={};
-    msg.title=title;
-    msg.yAxis=yAxis;
+    //msg.title=title;
+    //msg.yAxis=yAxis;
     msg.channel=channel;
     //msg.xAxis=xAxis;
     socket.emit('chartmsg',msg);
-    socket.on('test',function (data) {
-        var json=data;
-        $(li).highcharts(json);
+    socket.on('pushData',function (data) {
+         var payload={};
+        payload.title=title;
+        payload.yAxis = data.yAxis;
+        payload.yAxis.title=yAxis;
+        payload.tooltip = data.tooltip;
+        payload.legend = data.legend;
+        payload.series=data.series;
+        payload.xAxis = data.xAxis;
+        $(li).highcharts(payload);
     });
 });

@@ -29,17 +29,12 @@ var server = app.listen(app.get('port'), function() {
         verticalAlign: 'middle',
         borderWidth: 0
     };
-var payload={};
+
 var io=require('socket.io').listen(server);
 io.sockets.on('connection',function(socket){
 //通过socket把前端的信息推送到后台来
 socket.on('chartmsg',function(data){ 
     var channelName=data.channel;//通道名字
-    payload.title={text:data.title};//chart的名字
-    payload.yAxis = yAxis;
-    payload.yAxis.title={text:data.yAxis};//y轴的名字
-    payload.tooltip = tooltip;
-    payload.legend = legend;
 //一下是从redis数据库推送过来的数据
     try{
     var client=redis.createClient('6379','127.0.0.1');
@@ -51,13 +46,16 @@ socket.on('chartmsg',function(data){
     });
     client.on('message',function  (channel,message) {
         var info=JSON.parse(message);
+        var payload={};
         var serie=[{name:info.name,data:info.data}];
         var xAxis={categories:info.categories};
         payload.series=serie;
         payload.xAxis = xAxis;
+        payload.yAxis = yAxis;
+        payload.tooltip = tooltip;
+        payload.legend = legend;
 		//将redis推送过来打数据和所有chart的信息封装好后向前端推送
-        socket.emit('test',payload); 
-        //console.log(payload);
+        socket.emit('pushData',payload); 
     });
 }
 catch(error){
