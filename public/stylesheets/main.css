@@ -1,6 +1,8 @@
 body{
     background-color: #222;
 }
+.gridster ul{margin:0;}
+.gridster ul li{list-style-type:none;border:1px solid #f0ad4e;}
 #edit1,
 #edit2,
 #edit3{

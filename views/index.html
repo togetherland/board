@@ -7,17 +7,13 @@
     <link rel="stylesheet" href="stylesheets/main.css">
     <link rel="stylesheet" href="stylesheets/jquery.gridster.css">
     <script src="javascripts/choose.js"></script>
+    <script src="javascripts/chooseChart.js"></script>
     <script src="javascripts/jquery.min.js"></script>
     <script src="javascripts/bootstrap.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="javascripts/highcharts.js"></script>
     <script src="javascripts/jquery.gridster.js"></script>
     <script src='/socket.io/socket.io.js'></script>
-    <style>
-        .gridster ul{margin:0;}
-        .gridster ul li{list-style-type:none;border:1px solid #f0ad4e;}
-
-    </style>
 </head>
 <body onload="clicked1('append','edit1')">
 <!--添加组件的modal-->
@@ -33,7 +29,7 @@
                 <h4 class="modal-title" id="myModalLabel">添加一个插件</h4>
             </div>
             <div class="modal-content">
-				<img id="choosepushcolumn" src="images/pushcolumn.jpg" onclick="choosePushcolumn()" class="img" data-toggle="modal" data-target="#pushcolumn" data-dismiss="modal" aria-label="Close">
+	   <img id="choosepushcolumn" src="images/pushcolumn.jpg" onclick="choosePushcolumn()" class="img" data-toggle="modal" data-target="#pushcolumn" data-dismiss="modal" aria-label="Close">
                 <img id="choosepushcolumnmulti" src="images/pushcolumnmulti.jpg" onclick="choosePushcolumnmulti()" class="img" data-toggle="modal" data-target="#pushcolumnmulti" data-dismiss="modal" aria-label="Close">
                 <img id="choosepushcolumnlog" src="images/pushcolumnlog.jpg" onclick="choosePushcolumnlog()" class="img" data-toggle="modal" data-target="#pushcolumnlog" data-dismiss="modal" aria-label="Close">
                 <img id="choosepushgauge" src="images/pushgauge.jpg" onclick="choosePushgauge()" class="img" data-toggle="modal" data-target="#pushgauge" data-dismiss="modal" aria-label="Close">
@@ -47,87 +43,6 @@
         </div>
     </div>
 </div>
-
-
-<script>
-    var newidname="pushcolumn";
-    function choosePushcolumn(){
-        var datatarget=document.getElementById("choosepushcolumn").getAttribute("data-target");
-        var idname=datatarget.substring(1,datatarget.length);
-        var imgsrc=document.getElementById("choosepushcolumn").getAttribute("src");
-        document.getElementById("imgid").setAttribute("src",imgsrc);
-        document.getElementById(newidname).setAttribute("id",idname);
-        newidname=idname;
-    }
-    function choosePushcolumnmulti(){
-        var datatarget=document.getElementById("choosepushcolumnmulti").getAttribute("data-target");
-        var idname=datatarget.substring(1,datatarget.length);
-        var imgsrc=document.getElementById("choosepushcolumnmulti").getAttribute("src");
-        document.getElementById("imgid").setAttribute("src",imgsrc);
-        document.getElementById(newidname).setAttribute("id",idname);
-        newidname=idname;
-    }
-    function choosePushcolumnlog(){
-        var datatarget=document.getElementById("choosepushcolumnlog").getAttribute("data-target");
-        var idname=datatarget.substring(1,datatarget.length);
-        var imgsrc=document.getElementById("choosepushcolumnlog").getAttribute("src");
-        document.getElementById("imgid").setAttribute("src",imgsrc);
-        document.getElementById(newidname).setAttribute("id",idname);
-        newidname=idname;
-    }
-    function choosePushgauge(){
-        var datatarget=document.getElementById("choosepushgauge").getAttribute("data-target");
-        var idname=datatarget.substring(1,datatarget.length);
-        var imgsrc=document.getElementById("choosepushgauge").getAttribute("src");
-        document.getElementById("imgid").setAttribute("src",imgsrc);
-        document.getElementById(newidname).setAttribute("id",idname);
-        newidname=idname;
-    }
-    function choosePushline(){
-        var datatarget=document.getElementById("choosepushline").getAttribute("data-target");
-        var idname=datatarget.substring(1,datatarget.length);
-        var imgsrc=document.getElementById("choosepushline").getAttribute("src");
-        document.getElementById("imgid").setAttribute("src",imgsrc);
-        document.getElementById(newidname).setAttribute("id",idname);
-        newidname=idname;
-    }
-    function chooeArea(){
-        var datatarget=document.getElementById("choosearea").getAttribute("data-target");
-        var idname=datatarget.substring(1,datatarget.length);
-        var imgsrc=document.getElementById("choosearea").getAttribute("src");
-        document.getElementById("imgid").setAttribute("src",imgsrc);
-        document.getElementById(newidname).setAttribute("id",idname);
-        newidname=idname;
-    }
-    function chooseBar(){
-        var datatarget=document.getElementById("choosebar").getAttribute("data-target");
-        var idname=datatarget.substring(1,datatarget.length);
-        var imgsrc=document.getElementById("choosebar").getAttribute("src");
-        document.getElementById(newidname).setAttribute("id",idname);
-        document.getElementById("imgid").setAttribute("src",imgsrc);
-        newidname=idname;
-    }
-    function chooseColumn(){
-        var datatarget=document.getElementById("choosecolumn").getAttribute("data-target");
-        var idname=datatarget.substring(1,datatarget.length);
-        var imgsrc=document.getElementById("choosecolumn").getAttribute("src");
-        document.getElementById("imgid").setAttribute("src",imgsrc);
-        document.getElementById(newidname).setAttribute("id",idname);
-        newidname=idname;
-    }
-    function chooseLine(){
-        var datatarget=document.getElementById("chooseline").getAttribute("data-target");
-        var idname=datatarget.substring(1,datatarget.length);
-        var imgsrc=document.getElementById("chooseline").getAttribute("src");
-        document.getElementById("imgid").setAttribute("src",imgsrc);
-        document.getElementById(newidname).setAttribute("id",idname);
-        newidname=idname;
-    }
-</script>
-
-
-
-
 <!--各个组件的具体的modal-->
 <div class="modal" id="pushcolumn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -157,7 +72,7 @@
                         <li><label for="msgld">Msgld</label></li>
                         <li><input id="msgid" type="text" id="msgld" class="input-group"></li>
                     </ul>
-                    <img src="images/pushcolumn.jpg">
+                    <img id="imgid" src="images/pushcolumn.jpg">
                 </div>
                 <div id="edit2">
                     <ul id="config">
