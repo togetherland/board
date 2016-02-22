@@ -16,7 +16,40 @@ body{
 #edit1{
     visibility: hidden;
 }
-#pushcolumn .modal-content{
+#pushcolumn
+.modal-content{
+    height: 480px;
+}
+#pushcolumnmulti
+.modal-content{
+    height: 480px;
+}
+#pushcolumnlog
+.modal-content{
+    height: 480px;
+}
+#pushgauge
+.modal-content{
+    height: 480px;
+}
+#pushline
+.modal-content{
+    height: 480px;
+}
+#area
+.modal-content{
+    height: 480px;
+}
+#bar
+.modal-content{
+    height: 480px;
+}
+#column
+.modal-content{
+    height: 480px;
+}
+#line
+.modal-content{
     height: 480px;
 }
 #cho,
