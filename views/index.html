@@ -17,7 +17,39 @@
 </head>
 <body onload="clicked1('append','edit1')">
 <!--添加组件的modal-->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#component">+组件</button>
+<div id="header">
+    <img id="logo" src="images/logo.jpg">
+    <button id="addcomponent" type="button" class="btn btn-primary" data-toggle="modal" data-target="#component">
+       <span class="glyphicon glyphicon-plus"></span>组件
+    </button>
+    <button id="pause" type="button" class="btn btn-warning">
+       <span class="glyphicon glyphicon-pause"></span>暂停
+    </button>
+    <!--<div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            下拉菜单
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#" role="menuitem">中国气温</a></li>
+            <li><a href="#" role="menuitem">美国气温</a></li>
+            <li><a href="#" role="menuitem">英国气温</a></li>
+        </ul>
+    </div>
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>-->
+    <select id="panel">
+        <option value="china">中国气温</option>
+        <option value="america">美国气温</option>
+        <option value="england">英国气温</option>
+    </select>
+    <select id="account">
+        <option value="accountnum">用户名</option>
+        <option value="panelmanage">管理面板</option>
+        <option value="theme">主题设置</option>
+        <option value="exit">退出</option>
+    </select>
+</div>
 <div id='count'></div>
 <div class="modal" id="component" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -29,7 +61,7 @@
                 <h4 class="modal-title" id="myModalLabel">添加一个插件</h4>
             </div>
             <div class="modal-content">
-	   <img id="choosepushcolumn" src="images/pushcolumn.jpg" onclick="choosePushcolumn()" class="img" data-toggle="modal" data-target="#pushcolumn" data-dismiss="modal" aria-label="Close">
+	            <img id="choosepushcolumn" src="images/pushcolumn.jpg" onclick="choosePushcolumn()" class="img" data-toggle="modal" data-target="#pushcolumn" data-dismiss="modal" aria-label="Close">
                 <img id="choosepushcolumnmulti" src="images/pushcolumnmulti.jpg" onclick="choosePushcolumnmulti()" class="img" data-toggle="modal" data-target="#pushcolumnmulti" data-dismiss="modal" aria-label="Close">
                 <img id="choosepushcolumnlog" src="images/pushcolumnlog.jpg" onclick="choosePushcolumnlog()" class="img" data-toggle="modal" data-target="#pushcolumnlog" data-dismiss="modal" aria-label="Close">
                 <img id="choosepushgauge" src="images/pushgauge.jpg" onclick="choosePushgauge()" class="img" data-toggle="modal" data-target="#pushgauge" data-dismiss="modal" aria-label="Close">
