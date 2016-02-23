@@ -78,11 +78,11 @@ client.on('ready',function  (error) {
 			client.publish('pushline_London',JSON.stringify(London));
 			client.publish('pushcolumn_test',JSON.stringify(pushcolum));
 		},2000);
-		setTimeout(function  () {
-			clearInterval(interval);
-			console.log("out of interval");
-			client.end();
-		},500000);
+//		setTimeout(function  () {
+//			clearInterval(interval);
+//			console.log("out of interval");
+//			client.end();
+//		},500000);
 	}
 });
 
