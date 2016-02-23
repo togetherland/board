@@ -10,3 +10,4 @@
 3、安装成功后 npm start 启动服务器
 4、在浏览器中输入http://localhost:3000即可
 5、如果想要有数据展示到board上面必须要运行redisReader下面的testPublish.js
+6asdfasdfsad
