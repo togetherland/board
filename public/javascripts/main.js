@@ -1,3 +1,5 @@
+
+//main.js
 var gridster;
     $(function(){
         gridster = $(".gridster ul").gridster({    //通过jquery选择DOM实现gridster
@@ -34,14 +36,10 @@ var gridster;
     //msg.xAxis=xAxis;
     socket.emit('chartmsg',msg);
     socket.on('pushData',function (data) {
-         var payload={};
-        payload.title=title;
-        payload.yAxis = data.yAxis;
-        payload.yAxis.title=yAxis;
-        payload.tooltip = data.tooltip;
-        payload.legend = data.legend;
-        payload.series=data.series;
-        payload.xAxis = data.xAxis;
+        //console.log(JSON.stringify(data));
+         var payload=data;
+         payload.title=title;
+         payload.yAxis.title=yAxis;
         $(li).highcharts(payload);
     });
 });

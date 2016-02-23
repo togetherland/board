@@ -50,20 +50,39 @@ var London={
             data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0,16.6, 14.2, 10.3, 6.6, 4.8],
             categories:['一月', '二月', '三月', '四月', '五月', '六月' ,'七月', '八月', '九月', '十月', '十一月', '十二月']
         };
+ var pushcolum={
+ 	name: 'Population',
+             data: [
+                ['Shanghai', 23.7],
+                ['Lagos', 16.1],
+                ['Instanbul', 14.2],
+                ['Karachi', 14.0],
+                ['Mumbai', 12.5],
+                ['Moscow', 12.1],
+                ['São Paulo', 11.8],
+                ['Beijing', 11.7],
+                ['Guangzhou', 11.1],
+                ['Delhi', 11.1],
+                ['Shenzhen', 10.5],
+                ['Seoul', 10.4]
+            ]
+ }
+
 client.on('ready',function  (error) {
 	if (error) {
 		console.log(error);
 	}else{
 		var interval=setInterval(function  () {
-			client.publish('NewYork',JSON.stringify(NewYork));
-			client.publish('Berlin',JSON.stringify(Berlin));
-			client.publish('London',JSON.stringify(London));
+			client.publish('pushline_NewYork',JSON.stringify(NewYork));
+			client.publish('pushline_Berlin',JSON.stringify(Berlin));
+			client.publish('pushline_London',JSON.stringify(London));
+			client.publish('pushcolumn_test',JSON.stringify(pushcolum));
 		},2000);
 		setTimeout(function  () {
 			clearInterval(interval);
 			console.log("out of interval");
 			client.end();
-		},100000);
+		},500000);
 	}
 });
 
