@@ -71,3 +71,5 @@ var newidname="pushcolumn";
         document.getElementById(newidname).setAttribute("id",idname);
         newidname=idname;
     }
+    $("#pushcolumn").draggable();
+    $("#component").draggable();
