@@ -1,10 +1,10 @@
 # board
 这是一个board的模板：管理人员可以通过该board封装数据，其它用户可以查看以图表形式展示的管理人员封装的数据。
 ##环境：
-1、硬件环境 Windows/linux
+1、硬件环境 Windows/linux    
 2、软件环境 nodejs + express + socket.io + redis + mysql
 ##搭建步骤
-1、将项目克隆到本地：git clone +url
+1、将项目克隆到本地：git clone +url     
 2、安装express
 首先，express是nodejs平台上的web开发框架，所以安装express之前必须先安装nodejs，这里省略；
 然后，安装express框架：npm install -g express-generator（这是在全局环境中安装express）
