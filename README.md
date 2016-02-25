@@ -5,11 +5,11 @@
 2、软件环境 nodejs + express + socket.io + redis + mysql
 ##搭建步骤
 1、将项目克隆到本地：git clone +url     
-2、安装express
-首先，express是nodejs平台上的web开发框架，所以安装express之前必须先安装nodejs，这里省略；
-然后，安装express框架：npm install -g express-generator（这是在全局环境中安装express）
-3、搭建express框架
-（1）express -e filename
+2、安装express     
+  （1）首先，express是nodejs平台上的web开发框架，所以安装express之前必须先安装nodejs，这里省略；    
+  （2）然后，安装express框架：npm install -g express-generator（这是在全局环境中安装express）    
+3、搭建express框架    
+  （1）express -e filename
 此步骤是安装基本的express框架，会自动生成工作目录。
 其中，filename是总的工作目录；app.js是入口函数所在文件；public文件夹下有images（放图片）、javascripts（放js文件）、stylesheets（放CSS文件）；views文件夹下放html文件。
 （2）cd filename && npm install
