@@ -1,5 +1,5 @@
 body{
-    background-color: #222;
+    background-color: #333333;
 }
 #header{
     height: 50px;
@@ -29,7 +29,7 @@ body{
     height: 25px;
 }
 .gridster ul{margin:0;}
-.gridster ul li{list-style-type:none;border:1px solid #f0ad4e;}
+.gridster ul li{list-style-type:none;border:2px solid black;}
 #edit1,
 #edit2,
 #edit3{

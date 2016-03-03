@@ -19,10 +19,15 @@ var gridster;
                 stop: function(event, ui){
                     console.log("stop");
                 }
+            },
+            resize: {
+                enabled: true,
+                handle_class: 'con'
             }
         }).data('gridster');
     });
     $("#save").click(function () {
+
         var title={text:document.getElementById("title").value};
         var xAxis=document.getElementById('xAxis').value;
         var yAxis={text:document.getElementById('yAxis').value};
@@ -38,6 +43,7 @@ var gridster;
     socket.on('pushData',function (data) {
         //console.log(JSON.stringify(data));
          var payload=data;
+        //payload.className='chart';
          payload.title=title;
          payload.yAxis.title=yAxis;
         $(li).highcharts(payload);
