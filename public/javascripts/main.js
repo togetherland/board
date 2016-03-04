@@ -23,6 +23,7 @@ var gridster;
             resize: {
                 enabled: true,
                 handle_class: 'con'
+
             }
         }).data('gridster');
     });
@@ -46,6 +47,7 @@ var gridster;
         //payload.className='chart';
          payload.title=title;
          payload.yAxis.title=yAxis;
+        //payload.className='test';
         $(li).highcharts(payload);
     });
 });

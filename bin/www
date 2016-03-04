@@ -13,10 +13,13 @@ var server = app.listen(app.get('port'), function() {
 function pushline(){
     //这里是linechart的初始设置
     var chart={
-        backgroundColor: {
+        /*backgroundColor: {
             linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
             stops: [ [0, 'rgb(96, 96, 96)'], [1, 'rgb(16, 16, 16)'] ]
-        }
+
+        },*/
+        backgroundColor:'#333333',
+       type:'line'
     };
     var yAxis = {
         plotLines: [{
@@ -30,8 +33,9 @@ function pushline(){
     };
 
     var legend = {
+        backgroundColor: '#adadad',
         layout: 'vertical',
-        align: 'right',
+        align: 'middle',
         verticalAlign: 'middle',
         borderWidth: 0
     };
@@ -45,8 +49,9 @@ function pushline(){
 //柱状图
 function pushcolumn(){
     var chart= {
-            type: 'column',
-            backgroundColor:'#333333'
+
+            backgroundColor:'#333333',
+            type:'column'
         };
     var yAxis= {
             allowDecimals: false
@@ -54,6 +59,9 @@ function pushcolumn(){
      var xAxis={
                     type: 'category'
                 };
+    var legend={
+        backgroundColor:'#adadad'
+    };
     var tooltip= {
             formatter: function () {
                 return '<b>' + this.series.name + '</b><br/>' +
@@ -64,6 +72,7 @@ function pushcolumn(){
     payload.chart=chart;
     payload.yAxis=yAxis;
     payload.xAxis=xAxis;
+    payload.legend=legend;
     payload.tooltip=tooltip;
     return payload;
 }
@@ -71,7 +80,7 @@ function pushcolumn(){
 function pusharea(){
     var chart= {
         type: 'area',
-
+        backgroundColor:'#333333'
     };
     var xAxis= {
         allowDecimals: false,
@@ -108,7 +117,8 @@ function pushpie(){
         plotBackgroundColor: null,
             plotBorderWidth: null,
             plotShadow: false,
-            type: 'pie'
+            type: 'pie',
+        backgroundColor:'#333333'
     };
     var tooltip= {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
