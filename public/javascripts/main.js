@@ -21,8 +21,8 @@ var gridster;
                 }
             },
             resize: {
-                enabled: true,
-                handle_class: 'con'
+                enabled: true
+                //handle_class: 'con'
 
             }
         }).data('gridster');
@@ -34,6 +34,13 @@ var gridster;
         var yAxis={text:document.getElementById('yAxis').value};
         var channel=document.getElementById('msgid').value;
         var li=gridster.add_widget('<li class="con">The HTML of the widget...</li>', 4, 2);
+        var div=$('<div></div>', {
+            id: 'drawchart',
+            margin:10+"px",
+            width:"100%",
+            height:"100%"
+
+        }).appendTo($(li));
     var socket=io.connect('http://localhost:3000');
     var msg={};
     //msg.title=title;
@@ -48,6 +55,8 @@ var gridster;
          payload.title=title;
          payload.yAxis.title=yAxis;
         //payload.className='test';
-        $(li).highcharts(payload);
+        //var chart=li.highcharts(payload);
+        $(div).highcharts(payload);
+
     });
 });

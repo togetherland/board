@@ -1,4 +1,6 @@
-
+.test{
+    border: 2px solid red;
+}
 body{
     background-color: #333333;
 }
@@ -30,7 +32,7 @@ body{
     height: 25px;
 }
 .gridster ul{margin:0;}
-.gridster ul li{list-style-type:none;border:2px solid black;}
+.gridster ul li{list-style-type:none;}
 #edit1,
 #edit2,
 #edit3{

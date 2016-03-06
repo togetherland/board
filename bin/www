@@ -18,7 +18,7 @@ function pushline(){
             stops: [ [0, 'rgb(96, 96, 96)'], [1, 'rgb(16, 16, 16)'] ]
 
         },*/
-        backgroundColor:'#333333',
+        backgroundColor:'#adadad',
        type:'line'
     };
     var yAxis = {
@@ -50,7 +50,7 @@ function pushline(){
 function pushcolumn(){
     var chart= {
 
-            backgroundColor:'#333333',
+            backgroundColor:'#adadad',
             type:'column'
         };
     var yAxis= {

@@ -2,9 +2,9 @@
 
 ## Dependencies
 
-> If you're developing under Windows, see docs to setup 
+> If you're developing under Windows, see docs to setup，and the following steps are for linux.
 
-**Node >= v4.0** and a global `express` is required.
+**`Node`(>= v4.0)** and a global `express` are required.
 
 **It's recommended to use the latest version of npm**, to update npm run:
 
