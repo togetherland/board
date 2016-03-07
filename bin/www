@@ -11,7 +11,7 @@ var server = app.listen(app.get('port'), function() {
 });
 //线性图
 function pushline(){
-    //这里是linechart的初始设置
+    
     var chart={
         /*backgroundColor: {
             linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
