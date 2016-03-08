@@ -3,8 +3,8 @@
 ## Display   
 > You can login http://testland.orientsoft.cn:30000 to look at the webset;
 > You must input the true channel such as(pushcolumn_test,pusharea_test,pushpie_test,pushline_NewYork,pushline_London,pushline_Berlin....)  
+> And you must remember that start the pushserver before you start the board.you can push server in /board/redisReader/testPublist.js  you can run use **`node testPublish.js`** 
 > You may find **`some function are not available`**,and please be **`in patience`**,I will realize them quickly！
-
 ## Dependencies
 
 > If you're developing under Windows, see docs to setup，and the following steps are for linux.
@@ -29,7 +29,7 @@ If you encounter permission problems, try these command with sudo.
 ## Install
 
 ```
-git clone --recursive https://github.com/waitingForY/myboard.git
+git clone --recursive https://github.com/togetherland/board.git
 cd board
 npm install
 ```
