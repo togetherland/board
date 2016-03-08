@@ -1,4 +1,9 @@
-# board
+# myBoard
+
+## Display   
+> You can login http://testland.orientsoft.cn:30000 to look at the webset;
+> You must input the true channel such as(pushcolumn_test,pusharea_test,pushpie_test,pushline_NewYork,pushline_London,pushline_Berlin....)  
+> You may find **`some function are not available`**,and please be **`in patience`**,I will realize them quickly！
 
 ## Dependencies
 
@@ -24,7 +29,7 @@ If you encounter permission problems, try these command with sudo.
 ## Install
 
 ```
-git clone --recursive https://github.com/MonitorAndBoard/board.git
+git clone --recursive https://github.com/waitingForY/myboard.git
 cd board
 npm install
 ```
