@@ -163,6 +163,8 @@ function pushhash(){
         //zoomType:'xy',
         backgroundColor:'#333333'
     };
+    var xAxis={};
+    var yAxis={};
     var tooltip= {
         pointFormat: '{series.name}: <b>{point.y:.1f}%</b>'
     };
@@ -174,6 +176,8 @@ function pushhash(){
     };
     var payload={};
     payload.chart=chart;
+    payload.xAxis=xAxis;
+    payload.yAxis=yAxis;
     payload.tooltip=tooltip;
     payload.legend=legend;
     return payload;
