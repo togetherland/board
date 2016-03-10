@@ -24,33 +24,39 @@ function pushline(){
             value: 0,
             width: 1,
             color: '#808080'
-        }],
-        style:sty
+        }]
+        //style:sty
     };
     var tooltip = {
         valueSuffix: '\xB0C'
+    };
+    var legend={
+        backgroundColor:'#adadad',
+        itemStyle: { color: '#fff' },
+        itemHoverStyle: { color: '#333' },
+        itemHiddenStyle: { color: '#333' }
     };
     var payload={};
     payload.chart=chart;
     payload.yAxis = yAxis;
     payload.tooltip = tooltip;
+    payload.legend=legend;
     //payload.legend = legend;
     return payload;
 }
 //柱状图
 function pushcolumn(){
     var chart= {
-
             backgroundColor:'#333333',
             type:'column'
         };
     var yAxis= {
-        allowDecimals: false,
-        style:sty
+        allowDecimals: false
+        //style:sty
         };
      var xAxis={
-         type: 'category',
-         style:sty
+         type: 'category'
+         //style:sty
      };
     var tooltip= {
             formatter: function () {
@@ -58,11 +64,18 @@ function pushcolumn(){
                     this.point.y + ' ' + this.point.name.toLowerCase();
             }
         };
+    var legend={
+        backgroundColor:'#adadad',
+        itemStyle: { color: '#fff' },
+        itemHoverStyle: { color: '#333' },
+        itemHiddenStyle: { color: '#333' }
+    };
     var payload={};
     payload.chart=chart;
     payload.yAxis=yAxis;
     payload.xAxis=xAxis;
     payload.tooltip=tooltip;
+    payload.legend=legend;
     return payload;
 }
 //区域图
@@ -92,12 +105,18 @@ function pusharea(){
     var tooltip= {
         pointFormat: '{series.name} produced <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
     };
-    
+    var legend={
+        backgroundColor:'#adadad',
+        itemStyle: { color: '#fff' },
+        itemHoverStyle: { color: '#333' },
+        itemHiddenStyle: { color: '#333' }
+    };
     var payload={};
     payload.chart=chart;
     payload.yAxis=yAxis;
     payload.xAxis=xAxis;
     payload.tooltip=tooltip;
+    payload.legend=legend;
     return payload;
 }
 //饼状图
@@ -124,27 +143,39 @@ function pushpie(){
             }
         }
     };
+    var legend={
+        backgroundColor:'#adadad',
+        itemStyle: { color: '#fff' },
+        itemHoverStyle: { color: '#333' },
+        itemHiddenStyle: { color: '#333' }
+    };
     var payload={};
     payload.chart=chart;
     payload.tooltip=tooltip;
     payload.plotOptions=plotOptions;
+    payload.legend=legend;
     return payload;
 }
 //散列图
 function pushhash(){
     var chart= {
-        plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            //type: 'pie',
+        //type:'bubble',
+        //zoomType:'xy',
         backgroundColor:'#333333'
     };
     var tooltip= {
         pointFormat: '{series.name}: <b>{point.y:.1f}%</b>'
     };
+    var legend={
+        backgroundColor:'#adadad',
+        itemStyle: { color: '#fff' },
+        itemHoverStyle: { color: '#333' },
+        itemHiddenStyle: { color: '#333' }
+    };
     var payload={};
     payload.chart=chart;
     payload.tooltip=tooltip;
+    payload.legend=legend;
     return payload;
 }
 var io=require('socket.io').listen(server);
