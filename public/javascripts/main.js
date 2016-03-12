@@ -40,6 +40,7 @@ var gridster;
             height:"100%",
             background:"#ffffff"
         }).appendTo($(li));
+
         var socket=io.connect('http://localhost:3000');
     var msg={};
     msg.channel=channel;
@@ -53,5 +54,13 @@ var gridster;
         }
         console.log(payload);
         $(div).highcharts(payload);
+        var describe=$('<span></span>',{
+            class:'glyphicon glyphicon-info-sign',
+            float:'right'
+        }).appendTo($(div));
+        var close=$('<span></span>',{
+            class:'glyphicon glyphicon-remove-sign',
+            float:'right'
+        }).appendTo($(div));
     });
 });
