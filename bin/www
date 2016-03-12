@@ -140,7 +140,6 @@ function pushbar(){
     payload.chart.options3d.enabled=false;
     return payload;
 }
-
 function push3d()
 {
     var payload={};

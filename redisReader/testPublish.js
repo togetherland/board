@@ -86,8 +86,8 @@ client.on('ready',function  (error) {
 			client.publish('pushcolumn_test',JSON.stringify(pushcolum));
 			client.publish('pusharea_test',JSON.stringify(pusharea));
 			client.publish('pushpie_test',JSON.stringify(pushpie));
-                                       client.publish('pushbar_test',JSON.stringify(pushbar));
-                                       client.publish('push3d_test',JSON.stringify(pushcolumn3d));
+            client.publish('pushbar_test',JSON.stringify(pushbar));
+            client.publish('push3d_test',JSON.stringify(pushcolumn3d));
 
 
 		},2000);
