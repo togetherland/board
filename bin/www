@@ -140,12 +140,8 @@ function pushbar(){
     payload.chart.options3d.enabled=false;
     return payload;
 }
-<<<<<<< HEAD
-function push3d()
-=======
 
 function push3dcolumn()
->>>>>>> 75826d2acf5c9dff611b40eb5fe499b9b2fcd17f
 {
     var payload={};
     payload.chart=theme.chart;

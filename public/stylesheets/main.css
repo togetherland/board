@@ -16,14 +16,15 @@ body{
     float: left;
 }
 #pause{
-    margin: 7px 500px auto 15px;
+    margin: 3px 500px auto 15px;
     color: #ffffff;
-    font-size: 15px;
+    font-size: 20px;
 }
 #addcomponent{
-    margin: 7px 15px auto 30px;
+
+    margin: 3px 15px auto 30px;
     color: #ffffff;
-    font-size: 15px;
+    font-size: 20px;
 }
 #panel,
 #account{
@@ -31,7 +32,7 @@ body{
     height: 25px;
 }
 .gridster ul{margin:0;}
-.gridster ul li{list-style-type:none; background-color: #444444}
+.gridster ul li{list-style-type:none;}
 #edit1,
 #edit2,
 #edit3{

@@ -106,14 +106,9 @@ client.on('ready',function  (error) {
 			client.publish('pushcolumn_test',JSON.stringify(pushcolum));
 			client.publish('pusharea_test',JSON.stringify(pusharea));
 			client.publish('pushpie_test',JSON.stringify(pushpie));
-<<<<<<< HEAD
-            client.publish('pushbar_test',JSON.stringify(pushbar));
-            client.publish('push3d_test',JSON.stringify(pushcolumn3d));
-=======
                                        client.publish('pushbar_test',JSON.stringify(pushbar));
                                        client.publish('push3dcolumn_test',JSON.stringify(pushcolumn3d));
                                        client.publish('pushhalfpie_test',JSON.stringify(pushhalfpie));
->>>>>>> 75826d2acf5c9dff611b40eb5fe499b9b2fcd17f
 
 
 		},2000);
