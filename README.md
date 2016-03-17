@@ -29,7 +29,7 @@ If you encounter permission problems, try these command with sudo.
 ## Install
 
 ```
-git clone --recursive https://github.com/waitingForY/myboard.git
+git clone --recursive https://github.com/togetherland/board.git
 cd board
 npm install
 ```
