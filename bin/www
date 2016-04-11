@@ -2,7 +2,11 @@
 var debug = require('debug')('my-application');
 var app = require('../app');
 var redis=require('redis');
+var mysql=require('mysql');
+var request=require('request');
+var cheerio=require('cheerio');
 var client=redis.createClient('6379','127.0.0.1');
+
 app.set('port', process.env.PORT || 3000);
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
@@ -81,11 +85,47 @@ var theme={
         } 
     }
 };
+//nodejs与mysql交互
+(function(){
+    request('http://localhost:3000/views/regist.html',function(error,response,body){
+        if(!error&&response.statusCode==200){
+            $=cheerio.load(body);
+            var username=$('#username').val();
+            console.log(username);
+            var password=$('#passqord').val();
+            var password1=$('#passqord1').val();
+            if(password !== password1){
+                $("#password").css("border","1px solid red");
+                $("#password1").css("border","1px solid red");
+            }else{
+                var client=mysql.createConnection({
+                    host:'localhost',
+                    user:'root',
+                    password:'123456',
+                    port:'3306',
+                    database:'db_cct'
+                });
+
+                client.connect();
+                client.query('INSERT INTO user(id,name,password,grade,email,question,answer,sex) VALUES(2,"lee",123,"one",123232,"asdsa","sdss","woman")',function(err,result){
+                    if(err){
+                        console.log('INSERT ERROR',err.message);
+                        return;
+                    }
+                });
+                client.end();
+            }
+
+        }
+    });
+
+})();
 
 //线性图
 function pushline(){
     var payload=theme;
     payload.chart.type="line";
+    //payload.yAxis.tickPositions=[0, 20, 50, 100];
     payload.chart.options3d.enabled=false;
     return payload;
 }

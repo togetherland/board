@@ -43,7 +43,7 @@ var pushline={
  var pushcolum={
     categories: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
     name: 'Population',
-    data:[49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+    data:[49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 500.4, 194.1, 95.6, 54.4]
  };
 var pusharea={
         categories: [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ],
@@ -106,9 +106,9 @@ client.on('ready',function  (error) {
 			client.publish('pushcolumn_test',JSON.stringify(pushcolum));
 			client.publish('pusharea_test',JSON.stringify(pusharea));
 			client.publish('pushpie_test',JSON.stringify(pushpie));
-                                       client.publish('pushbar_test',JSON.stringify(pushbar));
-                                       client.publish('push3dcolumn_test',JSON.stringify(pushcolumn3d));
-                                       client.publish('pushhalfpie_test',JSON.stringify(pushhalfpie));
+            client.publish('pushbar_test',JSON.stringify(pushbar));
+            client.publish('push3dcolumn_test',JSON.stringify(pushcolumn3d));
+            client.publish('pushhalfpie_test',JSON.stringify(pushhalfpie));
 
 
 		},2000);

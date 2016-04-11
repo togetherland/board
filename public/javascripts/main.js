@@ -33,6 +33,29 @@ var gridster;
         var yAxis_text=document.getElementById('yAxis').value;
         var channel=document.getElementById('msgid').value;
         var li=gridster.add_widget('<li class="con"></li>', 4, 2);
+
+
+//        var div=$('<div></div>', {
+//            id: 'mark',
+//            width:"100%",
+//            height:20+'px'
+//            //background:"#ffffff"
+//        }).appendTo($(li));
+//        $(div).css("background-color","rgb(96,96,96)");
+//        var describe=$('<span></span>',{
+//            id:'describe',
+//            width:10+'px',
+//            height:10+'px',
+//            class:'glyphicon glyphicon-info-sign',
+//            float:'right'
+//        }).appendTo($(div));
+//        var close=$('<span></span>',{
+//            id:'close',
+//            width:10+'px',
+//            height:10+'px',
+//            class:'glyphicon glyphicon-remove-sign',
+//            float:'right'
+//        }).appendTo($(div));
         var div=$('<div></div>', {
             id: 'drawchart',
             margin:10+"px",
@@ -40,6 +63,7 @@ var gridster;
             height:"100%",
             background:"#ffffff"
         }).appendTo($(li));
+        $(div).css("background-color","green");
         var socket=io.connect('http://localhost:3000');
     var msg={};
     msg.channel=channel;
@@ -55,3 +79,5 @@ var gridster;
         $(div).highcharts(payload);
     });
 });
+
+
